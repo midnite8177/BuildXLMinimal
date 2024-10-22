@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <SolutionRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..\..\..\..\..\..\Out\VS'))</SolutionRoot>
+  </PropertyGroup>
+  <Import Project="$(SolutionRoot)\Common.props" />
+  <PropertyGroup>
+    <DominoSpecFile>Public\Src\Sandbox\Windows\Detours\Lib\Detours.dsc</DominoSpecFile>
+    <DominoValue>Detours.Lib.lib</DominoValue>
+    <PlatformToolset>v142</PlatformToolset>
+    <ProjectGuid>{66583097-1784-2633-649A-6A2A92BC4A36}</ProjectGuid>
+    <SpecRoot>$(EnlistmentRoot)\Public\Src\Sandbox\Windows\Detours\Lib</SpecRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_STL_WARNING_LEVEL=3;_DEBUG;DETOURS_X86_X64;_MBCS;_WINDOWS;_USRDLL;_WINDLL;_UNICODE;UNICODE;VERBOSE=0;</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">DETOURS_X64;DETOURS_64BIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">DETOURS_X86;DETOURS_32BIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EnlistmentRoot)\Public\Src\Sandbox\Windows\Detours\include;$(EnlistmentRoot)\Out\Objects\nuget\Microsoft.Windows.SDK.cpp.10.0.22621.755\c\Include\10.0.22621.0\um;$(EnlistmentRoot)\Out\Objects\nuget\Microsoft.Windows.SDK.cpp.10.0.22621.755\c\Include\10.0.22621.0\shared;$(EnlistmentRoot)\Out\Objects\nuget\Microsoft.Windows.SDK.cpp.10.0.22621.755\c\Include\10.0.22621.0\ucrt;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.29.30133\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ClCompile Include="creatwth.cpp" />
+    <ClCompile Include="detours.cpp" />
+    <ClCompile Include="disasm.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="modules.cpp" />
+    <ClCompile Include="tracing.cpp" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ClInclude Include="target.h" />
+    <ClInclude Include="tracing.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <None Include="Detours.dsc" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ProjectCapability Include="DominoVC;NoVCDefaultBuildUpToDateCheckProvider" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ClCompile Include="creatwth.cpp" />
+    <ClCompile Include="detours.cpp" />
+    <ClCompile Include="disasm.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="modules.cpp" />
+    <ClCompile Include="tracing.cpp" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ClInclude Include="target.h" />
+    <ClInclude Include="tracing.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <None Include="Detours.dsc" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ProjectCapability Include="DominoVC;NoVCDefaultBuildUpToDateCheckProvider" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>

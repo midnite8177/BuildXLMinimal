@@ -1,0 +1,7 @@
+LIBRARY DetoursServices
+EXPORTS
+    DllMain
+    CreateDetouredProcess
+    DetouredProcessInjector_Create
+    DetouredProcessInjector_Destroy
+    DetouredProcessInjector_Inject

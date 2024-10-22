@@ -1,0 +1,13 @@
+LIBRARY BuildXLNatives
+EXPORTS
+	DllMain
+	IsDetoursDebug
+    CreateDetachedProcess
+    FindFileAccessPolicyInTree
+    NormalizeAndHashPath
+    AreBuffersEqual
+    RemapDevices
+    CreateDetouredProcess
+    DetouredProcessInjector_Create
+    DetouredProcessInjector_Destroy
+    DetouredProcessInjector_Inject

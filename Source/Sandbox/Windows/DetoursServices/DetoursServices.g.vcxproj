@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <SolutionRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)\..\..\..\..\..\Out\VS'))</SolutionRoot>
+  </PropertyGroup>
+  <Import Project="$(SolutionRoot)\Common.props" />
+  <PropertyGroup>
+    <DominoBuildFilter>spec='Mount[SourceRoot]\Public\Src\Sandbox\Windows\DetoursServices\DetoursServices.dsc'</DominoBuildFilter>
+    <DominoSpecFile>Public\Src\Sandbox\Windows\DetoursServices\DetoursServices.dsc</DominoSpecFile>
+    <PlatformToolset>v142</PlatformToolset>
+    <ProjectGuid>{BF2CEAE8-2C73-E823-BE3C-9B06A5399214}</ProjectGuid>
+    <SpecRoot>$(EnlistmentRoot)\Public\Src\Sandbox\Windows\DetoursServices</SpecRoot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <DominoValue>Core.nativesDll</DominoValue>
+    <OutDir>$(EnlistmentRoot)\Out\Objects\n\3\4v725hgnpcn94z1ggp5q1504\link</OutDir>
+    <OutputPath>$(EnlistmentRoot)\Out\Objects\n\3\4v725hgnpcn94z1ggp5q1504\link</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <DominoValue>Core.detoursDll</DominoValue>
+    <OutDir>$(EnlistmentRoot)\Out\Objects\g\g\3tlz1yxwa88j0ncqmrlbgtz4\link</OutDir>
+    <OutputPath>$(EnlistmentRoot)\Out\Objects\g\g\3tlz1yxwa88j0ncqmrlbgtz4\link</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>_STL_WARNING_LEVEL=3;_DEBUG;DETOURS_X86_X64;_MBCS;_WINDOWS;_USRDLL;_WINDLL;_UNICODE;UNICODE;VERBOSE=0;DETOURSSERVICES_EXPORTS;DETOURS_SERVICES_NATIVES_LIBRARY;</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">DETOURS_X64;DETOURS_64BIT;BUILDXL_NATIVES_LIBRARY;TEST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">DETOURS_X86;DETOURS_32BIT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(EnlistmentRoot)\Public\Src\Sandbox\Common;$(EnlistmentRoot)\Private\InternalSdk\BuildXL.DeviceMap;$(EnlistmentRoot)\Public\Src\Sandbox\Windows\Detours\include;$(EnlistmentRoot)\Out\Objects\nuget\Microsoft.Windows.SDK.cpp.10.0.22621.755\c\Include\10.0.22621.0\um;$(EnlistmentRoot)\Out\Objects\nuget\Microsoft.Windows.SDK.cpp.10.0.22621.755\c\Include\10.0.22621.0\shared;$(EnlistmentRoot)\Out\Objects\nuget\Microsoft.Windows.SDK.cpp.10.0.22621.755\c\Include\10.0.22621.0\ucrt;C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\VC\Tools\MSVC\14.29.30133\include;</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ClCompile Include="Assertions.cpp" />
+    <ClCompile Include="CanonicalizedPath.cpp" />
+    <ClCompile Include="DebuggingHelpers.cpp" />
+    <ClCompile Include="DetouredFunctions.cpp" />
+    <ClCompile Include="DetouredProcessInjector.cpp" />
+    <ClCompile Include="DetouredScope.cpp" />
+    <ClCompile Include="DetoursHelpers.cpp" />
+    <ClCompile Include="DetoursServices.cpp" />
+    <ClCompile Include="DeviceMap.cpp" />
+    <ClCompile Include="FileAccessHelpers.cpp" />
+    <ClCompile Include="FilesCheckedForAccess.cpp" />
+    <ClCompile Include="HandleOverlay.cpp" />
+    <ClCompile Include="MetadataOverrides.cpp" />
+    <ClCompile Include="PathTree.cpp" />
+    <ClCompile Include="PolicyResult.cpp" />
+    <ClCompile Include="PolicyResult_common.cpp" />
+    <ClCompile Include="PolicySearch.cpp" />
+    <ClCompile Include="SendReport.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="StringOperations.cpp" />
+    <ClCompile Include="SubstituteProcessExecution.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ClInclude Include="Assertions.h" />
+    <ClInclude Include="buildXL_mem.h" />
+    <ClInclude Include="CanonicalizedPath.h" />
+    <ClInclude Include="DataTypes.h" />
+    <ClInclude Include="DebuggingHelpers.h" />
+    <ClInclude Include="DetouredFunctions.h" />
+    <ClInclude Include="DetouredFunctionTypes.h" />
+    <ClInclude Include="DetouredProcessInjector.h" />
+    <ClInclude Include="DetouredScope.h" />
+    <ClInclude Include="DetoursHelpers.h" />
+    <ClInclude Include="DetoursServices.h" />
+    <ClInclude Include="DeviceMap.h" />
+    <ClInclude Include="FileAccessHelpers.h" />
+    <ClInclude Include="FilesCheckedForAccess.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="HandleOverlay.h" />
+    <ClInclude Include="MetadataOverrides.h" />
+    <ClInclude Include="PathTree.h" />
+    <ClInclude Include="PolicyResult.h" />
+    <ClInclude Include="PolicySearch.h" />
+    <ClInclude Include="ResolvedPathCache.h" />
+    <ClInclude Include="SendReport.h" />
+    <ClInclude Include="stdafx-mac-interop.h" />
+    <ClInclude Include="stdafx-mac-kext.h" />
+    <ClInclude Include="stdafx-unix-common.h" />
+    <ClInclude Include="stdafx-win.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringOperations.h" />
+    <ClInclude Include="SubstituteProcessExecution.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="UnicodeConverter.h" />
+    <ClInclude Include="UniqueHandle.h" />
+    <ClInclude Include="UtilityHelpers.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <None Include="DetoursServices.dsc" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ProjectCapability Include="DominoVC;NoVCDefaultBuildUpToDateCheckProvider" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|X64'">
+    <ProjectReference Include="$(EnlistmentRoot)\Public\Src\Sandbox\Windows\Detours\Lib\Detours.g.vcxproj">
+      <Name>Detours</Name>
+      <Project>{66583097-1784-2633-649A-6A2A92BC4A36}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ClCompile Include="Assertions.cpp" />
+    <ClCompile Include="CanonicalizedPath.cpp" />
+    <ClCompile Include="DebuggingHelpers.cpp" />
+    <ClCompile Include="DetouredFunctions.cpp" />
+    <ClCompile Include="DetouredProcessInjector.cpp" />
+    <ClCompile Include="DetouredScope.cpp" />
+    <ClCompile Include="DetoursHelpers.cpp" />
+    <ClCompile Include="DetoursServices.cpp" />
+    <ClCompile Include="DeviceMap.cpp" />
+    <ClCompile Include="FileAccessHelpers.cpp" />
+    <ClCompile Include="FilesCheckedForAccess.cpp" />
+    <ClCompile Include="HandleOverlay.cpp" />
+    <ClCompile Include="MetadataOverrides.cpp" />
+    <ClCompile Include="PathTree.cpp" />
+    <ClCompile Include="PolicyResult.cpp" />
+    <ClCompile Include="PolicyResult_common.cpp" />
+    <ClCompile Include="PolicySearch.cpp" />
+    <ClCompile Include="SendReport.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="StringOperations.cpp" />
+    <ClCompile Include="SubstituteProcessExecution.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ClInclude Include="Assertions.h" />
+    <ClInclude Include="buildXL_mem.h" />
+    <ClInclude Include="CanonicalizedPath.h" />
+    <ClInclude Include="DataTypes.h" />
+    <ClInclude Include="DebuggingHelpers.h" />
+    <ClInclude Include="DetouredFunctions.h" />
+    <ClInclude Include="DetouredFunctionTypes.h" />
+    <ClInclude Include="DetouredProcessInjector.h" />
+    <ClInclude Include="DetouredScope.h" />
+    <ClInclude Include="DetoursHelpers.h" />
+    <ClInclude Include="DetoursServices.h" />
+    <ClInclude Include="DeviceMap.h" />
+    <ClInclude Include="FileAccessHelpers.h" />
+    <ClInclude Include="FilesCheckedForAccess.h" />
+    <ClInclude Include="globals.h" />
+    <ClInclude Include="HandleOverlay.h" />
+    <ClInclude Include="MetadataOverrides.h" />
+    <ClInclude Include="PathTree.h" />
+    <ClInclude Include="PolicyResult.h" />
+    <ClInclude Include="PolicySearch.h" />
+    <ClInclude Include="ResolvedPathCache.h" />
+    <ClInclude Include="SendReport.h" />
+    <ClInclude Include="stdafx-mac-interop.h" />
+    <ClInclude Include="stdafx-mac-kext.h" />
+    <ClInclude Include="stdafx-unix-common.h" />
+    <ClInclude Include="stdafx-win.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StringOperations.h" />
+    <ClInclude Include="SubstituteProcessExecution.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TreeNode.h" />
+    <ClInclude Include="UnicodeConverter.h" />
+    <ClInclude Include="UniqueHandle.h" />
+    <ClInclude Include="UtilityHelpers.h" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <None Include="DetoursServices.dsc" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ProjectCapability Include="DominoVC;NoVCDefaultBuildUpToDateCheckProvider" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|Win32'">
+    <ProjectReference Include="$(EnlistmentRoot)\Public\Src\Sandbox\Windows\Detours\Lib\Detours.g.vcxproj">
+      <Name>Detours</Name>
+      <Project>{66583097-1784-2633-649A-6A2A92BC4A36}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
