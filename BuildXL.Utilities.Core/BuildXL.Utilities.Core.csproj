@@ -1,0 +1,257 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Source\Utilities\Utilities.Core\AbsolutePath.cs" Link="AbsolutePath.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\AbsolutePathAncestorChecker.cs" Link="AbsolutePathAncestorChecker.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\AbsolutePathUtilities.cs" Link="AbsolutePathUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ActionBlockSlim.cs" Link="ActionBlockSlim.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Aggregation.cs" Link="Aggregation.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Analysis.cs" Link="Analysis.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ArrayPool.cs" Link="ArrayPool.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\AssemblyHelper.cs" Link="AssemblyHelper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\AsyncLazy.cs" Link="AsyncLazy.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\AsyncProcessExecutor.cs" Link="AsyncProcessExecutor.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\EnhancedStackFrame.cs" Link="Ben.Demystifier\EnhancedStackFrame.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\EnhancedStackTrace.cs" Link="Ben.Demystifier\EnhancedStackTrace.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\EnhancedStackTrace.Frames.cs" Link="Ben.Demystifier\EnhancedStackTrace.Frames.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\Enumerable\EnumerableIList.cs" Link="Ben.Demystifier\Enumerable\EnumerableIList.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\Enumerable\EnumeratorIList.cs" Link="Ben.Demystifier\Enumerable\EnumeratorIList.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\Enumerable\IEnumerableIList.cs" Link="Ben.Demystifier\Enumerable\IEnumerableIList.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\ExceptionExtensions.cs" Link="Ben.Demystifier\ExceptionExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\Internal\ILReader.cs" Link="Ben.Demystifier\Internal\ILReader.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\Internal\ReflectionHelper.cs" Link="Ben.Demystifier\Internal\ReflectionHelper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\Internal\TypeNameHelper.cs" Link="Ben.Demystifier\Internal\TypeNameHelper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\ResolvedMethod.cs" Link="Ben.Demystifier\ResolvedMethod.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\ResolvedParameter.cs" Link="Ben.Demystifier\ResolvedParameter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Ben.Demystifier\ValueTupleResolvedParameter.cs" Link="Ben.Demystifier\ValueTupleResolvedParameter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BinaryStringSegment.cs" Link="BinaryStringSegment.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildParameters.cs" Link="BuildParameters.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLContext.cs" Link="BuildXLContext.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLException.cs" Link="BuildXLException.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLReader.cs" Link="BuildXLReader.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLReaderExtensions.cs" Link="BuildXLReaderExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLWriter.cs" Link="BuildXLWriter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLWriterExtensions.cs" Link="BuildXLWriterExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\BuildXLWriterStats.cs" Link="BuildXLWriterStats.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ByteSizeFormatter.cs" Link="ByteSizeFormatter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\CancellableTimedAction.cs" Link="CancellableTimedAction.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\CaseInsensitiveStringIdEqualityComparer.cs" Link="CaseInsensitiveStringIdEqualityComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\CharArraySegment.cs" Link="CharArraySegment.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ArrayView.cs" Link="Collections\ArrayView.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\BigBuffer.cs" Link="Collections\BigBuffer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\Bits.cs" Link="Collections\Bits.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\BitSet.cs" Link="Collections\BitSet.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\BloomFilter.cs" Link="Collections\BloomFilter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\BoxRef.cs" Link="Collections\BoxRef.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\Buffer.cs" Link="Collections\Buffer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\BufferPointer.cs" Link="Collections\BufferPointer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\CharUtilities.cs" Link="Collections\CharUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\CollectionUtilities.cs" Link="Collections\CollectionUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\CollectionUtilities.Empty.Collections.cs" Link="Collections\CollectionUtilities.Empty.Collections.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\CompactSet.cs" Link="Collections\CompactSet.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentArrayList.cs" Link="Collections\ConcurrentArrayList.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentBigMap.cs" Link="Collections\ConcurrentBigMap.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentBigSet.Buckets.cs" Link="Collections\ConcurrentBigSet.Buckets.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentBigSet.cs" Link="Collections\ConcurrentBigSet.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentBigSet.Locks.cs" Link="Collections\ConcurrentBigSet.Locks.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentBitArray.cs" Link="Collections\ConcurrentBitArray.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentBoundedSortedCollection.cs" Link="Collections\ConcurrentBoundedSortedCollection.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentDenseIndex.cs" Link="Collections\ConcurrentDenseIndex.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentDrainingPriorityQueue.cs" Link="Collections\ConcurrentDrainingPriorityQueue.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ConcurrentPriorityQueue.cs" Link="Collections\ConcurrentPriorityQueue.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\DictionaryExtensions.cs" Link="Collections\DictionaryExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\DisposeAction.cs" Link="Collections\DisposeAction.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\HashSetExtensions.cs" Link="Collections\HashSetExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\IComparerExtensions.cs" Link="Collections\IComparerExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ICompatibleComparer.cs" Link="Collections\ICompatibleComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\IPendingSetItem.cs" Link="Collections\IPendingSetItem.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\IReadOnlySet.cs" Link="Collections\IReadOnlySet.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ItemCompletedEventArgs.cs" Link="Collections\ItemCompletedEventArgs.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ItemResources.cs" Link="Collections\ItemResources.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ItemSemaphoreQueuedEventArgs.cs" Link="Collections\ItemSemaphoreQueuedEventArgs.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\MinMaxHeap.cs" Link="Collections\MinMaxHeap.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\MultiValueDictionary.cs" Link="Collections\MultiValueDictionary.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ObjectCache.cs" Link="Collections\ObjectCache.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\PriorityQueue.cs" Link="Collections\PriorityQueue.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\Range.cs" Link="Collections\Range.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ReadOnlyArray.cs" Link="Collections\ReadOnlyArray.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ReadOnlyListEnumerable.cs" Link="Collections\ReadOnlyListEnumerable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ReadWriteLock.cs" Link="Collections\ReadWriteLock.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\ScopedReferenceMap.cs" Link="Collections\ScopedReferenceMap.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\SelectList.cs" Link="Collections\SelectList.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\SemaphoreSet.cs" Link="Collections\SemaphoreSet.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\SortedReadOnlyArray.cs" Link="Collections\SortedReadOnlyArray.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\SpanSortHelper.cs" Link="Collections\SpanSortHelper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\StreamUtilities.cs" Link="Collections\StreamUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\StructTuple.cs" Link="Collections\StructTuple.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\StructTupleExtensions.cs" Link="Collections\StructTupleExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\StructUtilities.cs" Link="Collections\StructUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Collections\TypeInspector.cs" Link="Collections\TypeInspector.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\CommandLineEscaping.cs" Link="CommandLineEscaping.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Counter\CounterCollection.cs" Link="Counter\CounterCollection.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Counter\CounterTracker.cs" Link="Counter\CounterTracker.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Counter\CounterType.cs" Link="Counter\CounterType.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Counter\CounterTypeAttribute.cs" Link="Counter\CounterTypeAttribute.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\CurrentProcess.cs" Link="CurrentProcess.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Defaults.cs" Link="Defaults.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Diagnostics\ExceptionHandling.cs" Link="Diagnostics\ExceptionHandling.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\DirectoryArtifact.cs" Link="DirectoryArtifact.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\DirectoryTranslator.cs" Link="DirectoryTranslator.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\DottedIdentifier.cs" Link="DottedIdentifier.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\EnumTraits.cs" Link="EnumTraits.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExceptionRootCause.cs" Link="ExceptionRootCause.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExceptionUtilities.cs" Link="ExceptionUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExpandedAbsolutePath.cs" Link="ExpandedAbsolutePath.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExpandedAbsolutePathEqualityComparer.cs" Link="ExpandedAbsolutePathEqualityComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExpandedPathDirectoryArtifactComparer.cs" Link="ExpandedPathDirectoryArtifactComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExpandedPathFileArtifactComparer.cs" Link="ExpandedPathFileArtifactComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExpandedPathFileArtifactWithAttributesComparer.cs" Link="ExpandedPathFileArtifactWithAttributesComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ExpandedTokenData.cs" Link="ExpandedTokenData.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FileArtifact.cs" Link="FileArtifact.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FileArtifactWithAttributes.cs" Link="FileArtifactWithAttributes.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FileArtifactWithAttributesExtensions.cs" Link="FileArtifactWithAttributesExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FileEnvelopeId.cs" Link="FileEnvelopeId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FileExistence.cs" Link="FileExistence.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FileOrDirectoryArtifact.cs" Link="FileOrDirectoryArtifact.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FormattableStringEx.cs" Link="FormattableStringEx.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FullSymbol.cs" Link="FullSymbol.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\FullSymbolExtensions.cs" Link="FullSymbolExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\HashCodeHelper.cs" Link="HashCodeHelper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\HierarchicalNameId.cs" Link="HierarchicalNameId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\HierarchicalNameTable.cs" Link="HierarchicalNameTable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ICharSpan.cs" Link="ICharSpan.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\IImplicitPath.cs" Link="IImplicitPath.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\INamedSemaphore.cs" Link="INamedSemaphore.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Dispatch.cs" Link="Interop\Dispatch.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Libraries.cs" Link="Interop\Libraries.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Linux\Impl.Linux.cs" Link="Interop\Linux\Impl.Linux.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Linux\Ipc.cs" Link="Interop\Linux\Ipc.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Constants.cs" Link="Interop\MacOS\Constants.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Impl.Common.cs" Link="Interop\MacOS\Impl.Common.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Impl.Mac.cs" Link="Interop\MacOS\Impl.Mac.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\IO.cs" Link="Interop\MacOS\IO.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Memory.cs" Link="Interop\MacOS\Memory.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Process.cs" Link="Interop\MacOS\Process.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Processor.cs" Link="Interop\MacOS\Processor.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\MacOS\Sandbox.cs" Link="Interop\MacOS\Sandbox.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\OperatingSystem.cs" Link="Interop\OperatingSystem.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\ProcessMemoryCountersSnapshot.cs" Link="Interop\ProcessMemoryCountersSnapshot.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Windows\IO.cs" Link="Interop\Windows\IO.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Windows\Memory.cs" Link="Interop\Windows\Memory.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Windows\Process.cs" Link="Interop\Windows\Process.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Windows\Processor.cs" Link="Interop\Windows\Processor.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Interop\Windows\SafeProcessHandle.cs" Link="Interop\Windows\SafeProcessHandle.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\IPathSegment.cs" Link="IPathSegment.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ISymbol.cs" Link="ISymbol.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Lazy.cs" Link="Lazy.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\LazyEx.cs" Link="LazyEx.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\LineInfo.cs" Link="LineInfo.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\LinuxNamedSemaphore.cs" Link="LinuxNamedSemaphore.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\LinuxSystemInfo.cs" Link="LinuxSystemInfo.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Location.cs" Link="Location.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\LocationData.cs" Link="LocationData.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\Diagnostic.cs" Link="Logging\Diagnostic.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\EventConstants.cs" Link="Logging\EventConstants.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\EventGenerators.cs" Link="Logging\EventGenerators.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\GeneratedEventAttribute.cs" Link="Logging\GeneratedEventAttribute.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\IHasEndTime.cs" Link="Logging\IHasEndTime.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\ILogger.cs" Link="Logging\ILogger.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\ILoggingQueue.cs" Link="Logging\ILoggingQueue.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\ILogMessageObserver.cs" Link="Logging\ILogMessageObserver.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\Keywords.cs" Link="Logging\Keywords.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\LimitingResourcePercentages.cs" Link="Logging\LimitingResourcePercentages.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\LoggerBase.cs" Link="Logging\LoggerBase.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\LoggingContext.cs" Link="Logging\LoggingContext.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\LoggingDetailsAttribute.cs" Link="Logging\LoggingDetailsAttribute.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\PipProcessEventFields.cs" Link="Logging\PipProcessEventFields.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\SharedLogEventId.cs" Link="Logging\SharedLogEventId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\Tasks.cs" Link="Logging\Tasks.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\UserName.cs" Link="Logging\UserName.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Logging\WorkerForwardedEvent.cs" Link="Logging\WorkerForwardedEvent.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\MemoryExtensions.cs" Link="MemoryExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ModuleId.cs" Link="ModuleId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ObjectPool.cs" Link="ObjectPool.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\OperatingSystemHelper.cs" Link="OperatingSystemHelper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\OrdinalDirectoryArtifactComparer.cs" Link="OrdinalDirectoryArtifactComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\OrdinalFileArtifactComparer.cs" Link="OrdinalFileArtifactComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\OrdinalPathOnlyFileArtifactComparer.cs" Link="OrdinalPathOnlyFileArtifactComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\OrdinalStringIdComparer.cs" Link="OrdinalStringIdComparer.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PartialSymbol.cs" Link="PartialSymbol.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PathAtom.cs" Link="PathAtom.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PathExpander.cs" Link="PathExpander.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PathFormat.cs" Link="PathFormat.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PathFormatter.cs" Link="PathFormatter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PathGeneratorUtilities.cs" Link="PathGeneratorUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PathTable.cs" Link="PathTable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PipExecutionContext.cs" Link="PipExecutionContext.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\PooledObjectWrapper.cs" Link="PooledObjectWrapper.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Pools.cs" Link="Pools.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Possible.cs" Link="Possible.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Possible{TResult,TFailure}.cs" Link="Possible{TResult,TFailure}.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\QualifierId.cs" Link="QualifierId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\QualifierTableAgnosticReader.cs" Link="QualifierTableAgnosticReader.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\QualifierTableAgnosticWriter.cs" Link="QualifierTableAgnosticWriter.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Qualifier\Qualifier.cs" Link="Qualifier\Qualifier.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Qualifier\QualifierSpace.cs" Link="Qualifier\QualifierSpace.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Qualifier\QualifierSpaceId.cs" Link="Qualifier\QualifierSpaceId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Qualifier\QualifierTable.cs" Link="Qualifier\QualifierTable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Qualifier\UnsupportedQualifierValue.cs" Link="Qualifier\UnsupportedQualifierValue.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\RelativePath.cs" Link="RelativePath.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\ResultBasedActionBlockSlim.cs" Link="ResultBasedActionBlockSlim.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SafeConvert.cs" Link="SafeConvert.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SandboxedProcessExecutorTestHook.cs" Link="SandboxedProcessExecutorTestHook.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SandboxKind.cs" Link="SandboxKind.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SpecialFolderUtilities.cs" Link="SpecialFolderUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\StringBuilderSegment.cs" Link="StringBuilderSegment.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\StringExtensions.cs" Link="StringExtensions.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\StringId.cs" Link="StringId.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\StringSegment.cs" Link="StringSegment.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\StringTable.cs" Link="StringTable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SymbolAtom.cs" Link="SymbolAtom.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SymbolCharacters.cs" Link="SymbolCharacters.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\SymbolTable.cs" Link="SymbolTable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Tasks\BoolTask.cs" Link="Tasks\BoolTask.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Tasks\TaskSourceSlim.cs" Link="Tasks\TaskSourceSlim.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Tasks\TaskUtilities.cs" Link="Tasks\TaskUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Tasks\Unit.cs" Link="Tasks\Unit.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\TestHooks.cs" Link="TestHooks.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Token.cs" Link="Token.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\TokenData.cs" Link="TokenData.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\TokenText.cs" Link="TokenText.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\TokenTextData.cs" Link="TokenTextData.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\TokenTextTable.cs" Link="TokenTextTable.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Tracing\StopwatchSlim.cs" Link="Tracing\StopwatchSlim.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\Tracing\TimestampUtilities.cs" Link="Tracing\TimestampUtilities.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\UnixGetCapUtils.cs" Link="UnixGetCapUtils.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\UnixObjectFileDumpUtils.cs" Link="UnixObjectFileDumpUtils.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\UnixUtilsBase.cs" Link="UnixUtilsBase.cs" />
+    <Compile Include="..\Source\Utilities\Utilities.Core\WindowsNamedSemaphore.cs" Link="WindowsNamedSemaphore.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Ben.Demystifier\Enumerable\" />
+    <Folder Include="Ben.Demystifier\Internal\" />
+    <Folder Include="Collections\" />
+    <Folder Include="Counter\" />
+    <Folder Include="Diagnostics\" />
+    <Folder Include="Interop\Linux\" />
+    <Folder Include="Interop\MacOS\" />
+    <Folder Include="Interop\Windows\" />
+    <Folder Include="Logging\" />
+    <Folder Include="Tracing\" />
+    <Folder Include="Tasks\" />
+    <Folder Include="Qualifier\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RuntimeContracts" Version="0.5.0" />
+  </ItemGroup>
+
+</Project>
