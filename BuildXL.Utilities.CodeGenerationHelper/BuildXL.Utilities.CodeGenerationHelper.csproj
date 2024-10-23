@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\AssemblyHelper.cs" Link="AssemblyHelper.cs" />
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\CodeGenerator.cs" Link="CodeGenerator.cs" />
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\CodeGenerator_Debracer.cs" Link="CodeGenerator_Debracer.cs" />
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\CodeGenerator_Deindenter.cs" Link="CodeGenerator_Deindenter.cs" />
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\CodeGenerator_Extension.cs" Link="CodeGenerator_Extension.cs" />
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\CodeGenerator_Formatter.cs" Link="CodeGenerator_Formatter.cs" />
+    <Compile Include="..\Source\Utilities\CodeGenerationHelper\GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="RuntimeContracts" Version="0.5.0" />
+  </ItemGroup>
+
+</Project>

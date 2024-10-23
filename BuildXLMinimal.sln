@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildXL.Utilities.Core", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildXL.Utilities", "BuildXL.Utilities\BuildXL.Utilities.csproj", "{818D1F74-34A9-4BF0-9DEC-3642E970BD8D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildXL.Utilities.CodeGenerationHelper", "BuildXL.Utilities.CodeGenerationHelper\BuildXL.Utilities.CodeGenerationHelper.csproj", "{408EC014-3AE8-4AB3-907C-14E93A28942E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,18 @@ Global
 		{818D1F74-34A9-4BF0-9DEC-3642E970BD8D}.Release|x64.Build.0 = Release|Any CPU
 		{818D1F74-34A9-4BF0-9DEC-3642E970BD8D}.Release|x86.ActiveCfg = Release|Any CPU
 		{818D1F74-34A9-4BF0-9DEC-3642E970BD8D}.Release|x86.Build.0 = Release|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Debug|x64.Build.0 = Debug|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Debug|x86.Build.0 = Debug|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Release|x64.ActiveCfg = Release|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Release|x64.Build.0 = Release|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Release|x86.ActiveCfg = Release|Any CPU
+		{408EC014-3AE8-4AB3-907C-14E93A28942E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
