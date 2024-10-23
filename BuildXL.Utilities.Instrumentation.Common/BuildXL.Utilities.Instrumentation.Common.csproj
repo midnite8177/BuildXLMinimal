@@ -1,20 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>10.0</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\Source\Utilities\Instrumentation\Common\AriaEvent.cs" Link="AriaEvent.cs" />
-    <Compile Include="..\Source\Utilities\Instrumentation\Common\AriaLoggers.cs" Link="AriaLoggers.cs" />
-    <Compile Include="..\Source\Utilities\Instrumentation\Common\AriaNative.cs" Link="AriaNative.cs" />
-    <Compile Include="..\Source\Utilities\Instrumentation\Common\AriaV2StaticState.cs" Link="AriaV2StaticState.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="../Source/Utilities/Instrumentation/Common/**/*.cs" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="RuntimeContracts" Version="0.5.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="RuntimeContracts" Version="0.5.0" />
+	</ItemGroup>
 
 </Project>

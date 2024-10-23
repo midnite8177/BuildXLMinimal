@@ -1,29 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>11.0</LangVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="..\Source\Utilities\ToolSupport\CommandLineUtilities.cs" Link="CommandLineUtilities.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\HelpWriter.cs" Link="HelpWriter.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\IArgumentParser.cs" Link="IArgumentParser.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\InvalidArgumentException.cs" Link="InvalidArgumentException.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\OptionHandler.cs" Link="OptionHandler.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\OptionHandlerFactory.cs" Link="OptionHandlerFactory.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\OptionHandlerMatcher.cs" Link="OptionHandlerMatcher.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\ToolProgram.cs" Link="ToolProgram.cs" />
-    <Compile Include="..\Source\Utilities\ToolSupport\WarningManager.cs" Link="WarningManager.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="../Source/Utilities/ToolSupport/**/*.cs" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="RuntimeContracts" Version="0.5.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="RuntimeContracts" Version="0.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BuildXL.Utilities\BuildXL.Utilities.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\BuildXL.Utilities\BuildXL.Utilities.csproj" />
+	</ItemGroup>
 
 </Project>

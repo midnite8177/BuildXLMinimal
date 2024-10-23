@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="../Source/Utilities/Native/**/*.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="logGen.config" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="RuntimeContracts" Version="0.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BuildXL.LogGenerator\BuildXL.LogGenerator.csproj" PrivateAssets="all" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\BuildXL.Utilities\BuildXL.Utilities.csproj" />
+	</ItemGroup>
+
+</Project>

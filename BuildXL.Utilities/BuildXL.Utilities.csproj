@@ -1,113 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>netstandard2.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<LangVersion>11.0</LangVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="..\Source\Utilities\Utilities\AssemblyLoaderHelper.cs" Link="AssemblyLoaderHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\AsyncMutex.cs" Link="AsyncMutex.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\AsyncOut.cs" Link="AsyncOut.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\CachedTask.cs" Link="CachedTask.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\CancellationTokenExtensions.cs" Link="CancellationTokenExtensions.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\CLI\Config.cs" Link="CLI\Config.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\CLI\Option.cs" Link="CLI\Option.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\CLI\ParsedOption.cs" Link="CLI\ParsedOption.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ConfigurationHelper.cs" Link="ConfigurationHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ConfigurationHelperExtensions.cs" Link="ConfigurationHelperExtensions.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ConsoleCancellationSource.cs" Link="ConsoleCancellationSource.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ConsoleHelper.cs" Link="ConsoleHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ContractUtilities.cs" Link="ContractUtilities.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\CrashReporting\CrashCollectorMacOS.cs" Link="CrashReporting\CrashCollectorMacOS.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Debugging\DebugTrace.cs" Link="Debugging\DebugTrace.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Debugging\DebugTraceArray.cs" Link="Debugging\DebugTraceArray.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\DefenderChecker.cs" Link="DefenderChecker.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Disposable.cs" Link="Disposable.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\FlaggedHierarchicalNameDictionary.cs" Link="FlaggedHierarchicalNameDictionary.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\FlaggedHierarchicalNameSet.cs" Link="FlaggedHierarchicalNameSet.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\GitHelper.cs" Link="GitHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\GlobalSuppressions.cs" Link="GlobalSuppressions.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\HexHelper.cs" Link="HexHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\NetworkCardMonitor.cs" Link="NetworkCardMonitor.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\NetworkMonitor.cs" Link="NetworkMonitor.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\OperatingSystemHelperExtension.cs" Link="OperatingSystemHelperExtension.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Optional.cs" Link="Optional.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\PageableStoreId.cs" Link="PageableStoreId.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ParallelAlgorithms\ActionQueue.cs" Link="ParallelAlgorithms\ActionQueue.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ParallelAlgorithms\ChannelsExtensions.cs" Link="ParallelAlgorithms\ChannelsExtensions.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ParallelAlgorithms\ConcurrencyHelper.cs" Link="ParallelAlgorithms\ConcurrencyHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ParallelAlgorithms\NagleQueue.cs" Link="ParallelAlgorithms\NagleQueue.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ParallelAlgorithms\ParallelAlgorithms.cs" Link="ParallelAlgorithms\ParallelAlgorithms.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\PerformanceCollector.cs" Link="PerformanceCollector.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\PipSpecificPropertiesConfig.cs" Link="PipSpecificPropertiesConfig.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\PipSpecificPropertyAndValue.cs" Link="PipSpecificPropertyAndValue.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ReadOnlyMemoryStream.cs" Link="ReadOnlyMemoryStream.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\RoaringBitSet.cs" Link="RoaringBitSet.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\RootExpander.cs" Link="RootExpander.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\RootTranslator.cs" Link="RootTranslator.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\SerializationPool.cs" Link="SerializationPool.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\ArrayBufferWriter.cs" Link="Serialization\ArrayBufferWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\BxlArrayBufferWriter.cs" Link="Serialization\BxlArrayBufferWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\CompoundStream.cs" Link="Serialization\CompoundStream.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\CompoundStream.PartStream.cs" Link="Serialization\CompoundStream.PartStream.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\ConversionArrayPool.cs" Link="Serialization\ConversionArrayPool.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\InliningReader.cs" Link="Serialization\InliningReader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\InliningWriter.cs" Link="Serialization\InliningWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\InsufficientLengthException.cs" Link="Serialization\InsufficientLengthException.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\MemoryMarshalShim.cs" Link="Serialization\MemoryMarshalShim.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\PathMapSerializer.cs" Link="Serialization\PathMapSerializer.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\SpanReader.cs" Link="Serialization\SpanReader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\SpanSerializationExtensions.cs" Link="Serialization\SpanSerializationExtensions.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\SpanWriter.cs" Link="Serialization\SpanWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\StringBuilderCache.cs" Link="Serialization\StringBuilderCache.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Serialization\TrackedStream.cs" Link="Serialization\TrackedStream.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\StatusMessageThrottler.cs" Link="StatusMessageThrottler.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\StoppableTimer.cs" Link="StoppableTimer.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\StreamBinaryReader.cs" Link="StreamBinaryReader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\StreamBinaryWriter.cs" Link="StreamBinaryWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\SwappableStream.cs" Link="SwappableStream.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\TableAgnosticReader.cs" Link="TableAgnosticReader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\TableAgnosticWriter.cs" Link="TableAgnosticWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\Awaitables.cs" Link="Tasks\Awaitables.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\DedicatedThreadsTaskScheduler.cs" Link="Tasks\DedicatedThreadsTaskScheduler.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\DedicatedThreadTaskScheduler.cs" Link="Tasks\DedicatedThreadTaskScheduler.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\HopToThreadPoolAwaitable.cs" Link="Tasks\HopToThreadPoolAwaitable.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\LimitedConcurrencyLevelTaskScheduler.cs" Link="Tasks\LimitedConcurrencyLevelTaskScheduler.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\TaskExtensionMethods.cs" Link="Tasks\TaskExtensionMethods.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\TaskExtensions.cs" Link="Tasks\TaskExtensions.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\TaskUtilitiesExtension.cs" Link="Tasks\TaskUtilitiesExtension.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tasks\ValueTaskFactory.cs" Link="Tasks\ValueTaskFactory.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ThreadPoolHelper.cs" Link="ThreadPoolHelper.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\TimeSpanUtilities.cs" Link="TimeSpanUtilities.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\BaseEventListener.cs" Link="Tracing\BaseEventListener.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\BinaryLogger.cs" Link="Tracing\BinaryLogger.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\BinaryLogReader.cs" Link="Tracing\BinaryLogReader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\CaptureBuildProperties.cs" Link="Tracing\CaptureBuildProperties.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\ErrorAndWarningEventListener.cs" Link="Tracing\ErrorAndWarningEventListener.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\ErrorCategoryDetails.cs" Link="Tracing\ErrorCategoryDetails.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\EventHeader.cs" Link="Tracing\EventHeader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\EventMask.cs" Link="Tracing\EventMask.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\Events.cs" Link="Tracing\Events.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\FormattingEventListener.cs" Link="Tracing\FormattingEventListener.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\IConsole.cs" Link="Tracing\IConsole.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\IEtwOnlyTextLogger.cs" Link="Tracing\IEtwOnlyTextLogger.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\IEventWriter.cs" Link="Tracing\IEventWriter.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\LazilyCreatedStream.cs" Link="Tracing\LazilyCreatedStream.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\LoggingQueue.cs" Link="Tracing\LoggingQueue.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\ParallelBinaryLogReader.cs" Link="Tracing\ParallelBinaryLogReader.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\PathTranslator.cs" Link="Tracing\PathTranslator.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\StandardConsole.cs" Link="Tracing\StandardConsole.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\StopwatchVar.cs" Link="Tracing\StopwatchVar.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\TaskBarInterop.cs" Link="Tracing\TaskBarInterop.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\TextWriterEventListener.cs" Link="Tracing\TextWriterEventListener.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\TrackingEventListener.cs" Link="Tracing\TrackingEventListener.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Tracing\WarningState.cs" Link="Tracing\WarningState.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\UnitValue.cs" Link="UnitValue.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\Warning.cs" Link="Warning.cs" />
-		<Compile Include="..\Source\Utilities\Utilities\ZeroLeftPaddedStream.cs" Link="ZeroLeftPaddedStream.cs" />
+		<Compile Include="..\Source\PolySharpAttributes\System.Runtime.CompilerServices\CallerArgumentExpressionAttribute.cs" Link="CallerArgumentExpressionAttribute.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -115,15 +17,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="CLI\" />
-		<Folder Include="CrashReporting\" />
-		<Folder Include="Debugging\" />
-		<Folder Include="ParallelAlgorithms\" />
-		<Folder Include="Tracing\" />
-		<Folder Include="Tasks\" />
-		<Folder Include="Serialization\" />
+		<Compile Include="../Source/Utilities/Utilities/**/*.cs" />
 	</ItemGroup>
-
+	
 	<ItemGroup>
 		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
 			<_Parameter1>BuildXL.FrontEnd.Script</_Parameter1>
@@ -137,6 +33,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
 		<PackageReference Include="RuntimeContracts" Version="0.5.0" />
 		<PackageReference Include="System.Management" Version="8.0.0" />
 	</ItemGroup>
