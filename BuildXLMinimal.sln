@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildXL.Utilities.CodeGener
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildXL.Utilities.Instrumentation.Common", "BuildXL.Utilities.Instrumentation.Common\BuildXL.Utilities.Instrumentation.Common.csproj", "{E6A15559-F856-43F8-877A-7CEDAAC51E1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildXL.ToolSupport", "BuildXL.ToolSupport\BuildXL.ToolSupport.csproj", "{DD354266-AF9A-412E-82DA-571B71505EAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,18 @@ Global
 		{E6A15559-F856-43F8-877A-7CEDAAC51E1D}.Release|x64.Build.0 = Release|Any CPU
 		{E6A15559-F856-43F8-877A-7CEDAAC51E1D}.Release|x86.ActiveCfg = Release|Any CPU
 		{E6A15559-F856-43F8-877A-7CEDAAC51E1D}.Release|x86.Build.0 = Release|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Debug|x64.Build.0 = Debug|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Debug|x86.Build.0 = Debug|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Release|x64.ActiveCfg = Release|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Release|x64.Build.0 = Release|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Release|x86.ActiveCfg = Release|Any CPU
+		{DD354266-AF9A-412E-82DA-571B71505EAC}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
