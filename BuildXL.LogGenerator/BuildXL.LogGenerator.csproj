@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Include="..\Source\Utilities\Instrumentation\LogGenerator\EnumerableExtensions.cs" Link="EnumerableExtensions.cs" />
+		<Compile Include="..\Source\Utilities\Instrumentation\LogGenerator\GeneratedLogSyntaxReceiver.cs" Link="GeneratedLogSyntaxReceiver.cs" />
+		<Compile Include="..\Source\Utilities\Instrumentation\LogGenerator\LogGenConfiguration.cs" Link="LogGenConfiguration.cs" />
+		<Compile Include="..\Source\Utilities\Instrumentation\LogGenerator\LogGenerator.cs" Link="LogGenerator.cs" />
+		<Compile Include="..\Source\Utilities\Instrumentation\LogGenerator\SourceGeneratorErrorReporter.cs" Link="SourceGeneratorErrorReporter.cs" />
+		<Compile Include="..\Source\Utilities\Instrumentation\LogGenerator\SymbolAnalysisHelper.cs" Link="SymbolAnalysisHelper.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="RuntimeContracts" Version="0.5.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BuildXL.LogGen.Core\BuildXL.LogGen.Core.csproj" />
+	</ItemGroup>
+
+</Project>
