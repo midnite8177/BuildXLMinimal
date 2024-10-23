@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\ErrorReport.cs" Link="ErrorReport.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\GeneratorBase.cs" Link="GeneratorBase.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\Generators\AriaV2.cs" Link="Generators\AriaV2.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\Generators\BuildXLStatistic.cs" Link="Generators\BuildXLStatistic.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\Generators\InspectableEventSourceGenerator.cs" Link="Generators\InspectableEventSourceGenerator.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\Generators\ManifestedEventSource.cs" Link="Generators\ManifestedEventSource.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\Generators\Noop.cs" Link="Generators\Noop.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\Generators\SupportedGenerators.cs" Link="Generators\SupportedGenerators.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\LoggingClass.cs" Link="LoggingClass.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\LoggingSite.cs" Link="LoggingSite.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\LogWriterHelpers.cs" Link="LogWriterHelpers.cs" />
+    <Compile Include="..\Source\Utilities\Instrumentation\LogGen.Core\ParserHelpers.cs" Link="ParserHelpers.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Generators\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.11.0" />
+    <PackageReference Include="RuntimeContracts" Version="0.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuildXL.Utilities.CodeGenerationHelper\BuildXL.Utilities.CodeGenerationHelper.csproj" />
+    <ProjectReference Include="..\BuildXL.Utilities.Core\BuildXL.Utilities.Core.csproj" />
+    <ProjectReference Include="..\BuildXL.Utilities.Instrumentation.Common\BuildXL.Utilities.Instrumentation.Common.csproj" />
+  </ItemGroup>
+
+</Project>
