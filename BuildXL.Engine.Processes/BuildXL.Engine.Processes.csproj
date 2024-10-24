@@ -9,34 +9,24 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="../Source/Utilities/Native/**/*.cs" />
+		<Compile Include="../Source/Engine/Processes/**/*.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<!-- <AdditionalFiles Include="logGen.config" /> -->
-		<IgnoreFiles Include="logGen.config" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-			<_Parameter1>BuildXL.Native.Extensions</_Parameter1>
-		</AssemblyAttribute>
-		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-			<_Parameter1>BuildXL.Engine.Processes</_Parameter1>
-		</AssemblyAttribute>
-		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
-			<_Parameter1>BuildXL.Engine.ProcessPipExecutor</_Parameter1>
-		</AssemblyAttribute>
+		<!-- <AdditionalFiles Include="logGen.json" /> -->
+		<IgnoreFiles Include="logGen.json" />
 	</ItemGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="RuntimeContracts" Version="0.5.0" />
+		<PackageReference Include="System.IO.Pipelines" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\BuildXL.Utilities\BuildXL.Utilities.csproj" />
+		<ProjectReference Include="..\BuildXL.Native\BuildXL.Native.csproj" />
+		<ProjectReference Include="..\BuildXL.Utilities.Core\BuildXL.Utilities.Core.csproj" OutputItemType="Analyzer"/>
 
-<!--
+		<!--
 		<ProjectReference Include="..\BuildXL.LogGenerator\BuildXL.LogGenerator.csproj" PrivateAssets="all" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
 		<ProjectReference Include="..\BuildXL.LogGen.Core\BuildXL.LogGen.Core.csproj" OutputItemType="Analyzer">
 			<SetTargetFramework>TargetFramework=netstandard2.0</SetTargetFramework>
@@ -44,7 +34,7 @@
 		<ProjectReference Include="..\BuildXL.Utilities.CodeGenerationHelper\BuildXL.Utilities.CodeGenerationHelper.csproj" OutputItemType="Analyzer">
 			<SetTargetFramework>TargetFramework=netstandard2.0</SetTargetFramework>
 		</ProjectReference>
--->		
+		-->
 	</ItemGroup>
 
 </Project>

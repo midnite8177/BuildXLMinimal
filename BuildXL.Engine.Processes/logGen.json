@@ -1,0 +1,23 @@
+﻿{
+	"aliases": [
+		{
+			"key": "ShortProductName",
+			"value": "BuildXL"
+		},
+		{
+			"key": "LongProductName",
+			"value": "Microsoft (R) Build Accelerator"
+		},
+		{
+			"key": "ShortScriptName",
+			"value": "DScript"
+		},
+		{
+			"key": "MainExecutableName",
+			"value": "bxl.exe"
+		}
+	],
+	"generationNamespace": "BuildXL.Processes.Tracing",
+	"targetFramework": "net8.0",
+	"targetRuntime": "win-x64"
+}

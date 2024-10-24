@@ -18,7 +18,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\BuildXL.Utilities.CodeGenerationHelper\BuildXL.Utilities.CodeGenerationHelper.csproj" />
-		<ProjectReference Include="..\BuildXL.Utilities.Core\BuildXL.Utilities.Core.csproj" />
+		<ProjectReference Include="..\BuildXL.Utilities.Core\BuildXL.Utilities.Core.csproj">
+			<SetTargetFramework>TargetFramework=netstandard2.0</SetTargetFramework>
+		</ProjectReference>
 		<ProjectReference Include="..\BuildXL.Utilities.Instrumentation.Common\BuildXL.Utilities.Instrumentation.Common.csproj" />
 	</ItemGroup>
 
