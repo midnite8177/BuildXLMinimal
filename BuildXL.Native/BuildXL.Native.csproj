@@ -6,6 +6,10 @@
 		<Nullable>disable</Nullable>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Version>1.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -45,6 +49,36 @@
 			<SetTargetFramework>TargetFramework=netstandard2.0</SetTargetFramework>
 		</ProjectReference>
 -->		
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- x64 -->
+		<None Include="$(SolutionDir)\x64\$(Configuration)\*.dll">
+			<TargetPath>runtimes\win-x64\native\%(Filename)%(Extension)</TargetPath>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<Pack>True</Pack>
+			<PackagePath>runtimes\win-x64\native</PackagePath>
+		</None>
+		<None Include="$(SolutionDir)\x64\$(Configuration)\*.pdb">
+			<TargetPath>runtimes\win-x64\native\%(Filename)%(Extension)</TargetPath>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Remove="$(SolutionDir)\x64\$(Configuration)\Detours.pdb">
+		</None>
+
+		<!-- x86 -->
+		<None Include="$(SolutionDir)\$(Configuration)\*.dll">
+			<TargetPath>runtimes\win-x86\native\%(Filename)%(Extension)</TargetPath>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+			<Pack>True</Pack>
+			<PackagePath>runtimes\win-x86\native</PackagePath>
+		</None>
+		<None Include="$(SolutionDir)\$(Configuration)\*.pdb">
+			<TargetPath>runtimes\win-x86\native\%(Filename)%(Extension)</TargetPath>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Remove="$(SolutionDir)\$(Configuration)\Detours.pdb">
+		</None>
 	</ItemGroup>
 
 </Project>

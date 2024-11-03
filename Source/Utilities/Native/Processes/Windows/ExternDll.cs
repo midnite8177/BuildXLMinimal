@@ -10,9 +10,9 @@ namespace BuildXL.Native.Processes.Windows
     {
 #pragma warning disable CS1591 // Missing XML comment
         public const string Kernel32 = "KERNEL32.DLL";
-        public const string DetoursServices32 = @"X86\DetoursServices.dll";
-        public const string DetoursServices64 = @"X64\DetoursServices.dll";
-        public const string BuildXLNatives64 = @"X64\BuildXLNatives.dll";
+        public const string DetoursServices32 = @"runtimes\win-x86\native\DetoursServices.dll";
+        public const string DetoursServices64 = @"runtimes\win-x64\native\DetoursServices.dll";
+        public const string BuildXLNatives64 = @"runtimes\win-x64\native\BuildXLNatives.dll";
         public const string Psapi = "Psapi.dll";
         public const string Ntdll = "ntdll.dll";
         public const string Container = "container.dll";
