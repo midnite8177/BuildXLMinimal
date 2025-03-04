@@ -2,6 +2,7 @@
 // Licensed under the MIT License.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
@@ -21,6 +22,17 @@ namespace BuildXL.Utilities
     /// </summary>
     public static class OperatingSystemHelperExtension
     {
+        /// <summary>
+        /// List of officially Supported Linux distributions by BuildXL.
+        /// </summary>
+        public static readonly List<LinuxDistribution> SupportedLinuxDistributions =
+        [
+            new("ubuntu", new Version("20.04")),
+            new("ubuntu", new Version("22.04")),
+            new("ubuntu", new Version("24.04")),
+            new("mariner", new Version("2.0"))
+        ];
+
         private static readonly Lazy<Version> CurrentMacOSVersion = new Lazy<Version>(() => GetOSVersionMacOS());
 
         private static readonly Tuple<string, string> ProcessorNameAndIdentifierMacOS =
@@ -34,16 +46,6 @@ namespace BuildXL.Utilities
         private static readonly string MACHDEP_CPU_VENDOR = "machdep.cpu.vendor";
 
         private const int ProcessTimeoutMilliseconds = 1000;
-
-        /// <summary>
-        /// Current Linux distro versions supported by BuildXL.
-        /// </summary>
-        private static readonly Version[] m_supportedLinuxDistroVersionIds = { new Version("20.04"), new Version("22.04") };
-
-        /// <summary>
-        /// Operating system id.
-        /// </summary>
-        private const string SupportedLinuxDistributionName = "ubuntu";
 
         /// <summary>
         /// Gets the current OS description e.g. "Windows 10 Enterprise 10.0.10240"
@@ -361,25 +363,25 @@ namespace BuildXL.Utilities
         }
 
         /// <summary>
-        /// Checks if the current Linux distro version on the machine is among those officially supported by BuildXL.
+        /// Get the current linux distro info from LinuxSystemInfo internal class
         /// </summary>
-        public static bool IsLinuxDistroVersionSupported()
+        public static LinuxDistribution GetLinuxDistribution()
         {
-            var linuxDistroInfo = LinuxSystemInfo.GetLinuxDistroInfo();
-
-            if (linuxDistroInfo.distroName == SupportedLinuxDistributionName)
+            if (!OperatingSystemHelper.IsLinuxOS)
             {
-                foreach (var supportedVersion in m_supportedLinuxDistroVersionIds)
-                {
-                    if (linuxDistroInfo.distroVersionId.Major == supportedVersion.Major &&
-                       linuxDistroInfo.distroVersionId.Minor == supportedVersion.Minor)
-                    {
-                        return true;
-                    }
-                }
+                return null;
             }
 
-            return false;
+            return LinuxSystemInfo.GetLinuxDistroInfo();
+        }
+
+        /// <summary>
+        /// Checks if the current Linux distro version on the machine is among those officially supported by BuildXL.
+        /// </summary>
+        public static bool IsLinuxDistroVersionSupported(out LinuxDistribution distribution)
+        {
+            distribution = LinuxSystemInfo.GetLinuxDistroInfo();
+            return SupportedLinuxDistributions.Contains(distribution);
         }
 
         /// <summary>

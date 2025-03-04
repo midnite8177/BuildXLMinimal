@@ -68,6 +68,19 @@ namespace BuildXL.ToolSupport
         /// </summary>
         private static readonly char[] s_separators = { ':' };
 
+        
+        /// <summary>
+        /// Used to parse time duration options
+        /// </summary>
+        private static readonly (string, int)[] s_durationFactorBySuffix =
+        [
+                ("ms",  1),         // Order matters so we try ms before s
+                ("s",   1000),
+                ("m",   1000 * 60),
+                ("min", 1000 * 60),
+                ("h",   1000 * 60 * 60)
+        ];
+
         /// <summary>
         /// Wraps a command-line for easy consumption.
         /// </summary>
@@ -620,6 +633,22 @@ namespace BuildXL.ToolSupport
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Parse an option that represents a time duration: the allowed suffixes are 'ms', 's', 'm', 'h'
+        /// If no suffix is specified the amount is interpreted in milliseconds
+        /// </summary>
+        public static int ParseDurationOptionToMilliseconds(Option opt, int minValue, int maxValue)
+        {
+            var possibleResult = ConvertUtilities.TryParseDurationOptionToMilliseconds(opt.Value, opt.Name, minValue, maxValue);
+            
+            if (!possibleResult.Succeeded)
+            {
+                throw Error(possibleResult.Failure.Content);
+            }
+
+            return possibleResult.Result;
         }
 
         /// <summary>

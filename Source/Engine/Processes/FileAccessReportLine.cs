@@ -142,6 +142,7 @@ namespace BuildXL.Processes
             out FileAccessStatus status,
             out bool explicitlyReported,
             out uint error,
+            out uint rawError,
             out Usn usn,
             out DesiredAccess desiredAccess,
             out ShareMode shareMode,
@@ -159,7 +160,7 @@ namespace BuildXL.Processes
             operation = ReportedFileOperation.Unknown;
             requestedAccess = RequestedAccess.None;
             status = FileAccessStatus.None;
-            processId = parentProcessId = error = 0;
+            processId = parentProcessId = error = rawError = 0;
             id = correlationId = 0;
             usn = default;
             explicitlyReported = false;
@@ -174,7 +175,7 @@ namespace BuildXL.Processes
             processArgs = null;
             errorMessage = string.Empty;
 
-            const int MinItemsCount = 15;
+            const int MinItemsCount = 16;
 #if NET5_0_OR_GREATER
             var i = line.IndexOf(':', StringComparison.Ordinal);
 #else
@@ -205,6 +206,7 @@ namespace BuildXL.Processes
                 tryGetNextItem(ref items, out span) && uint.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var statusValue) &&
                 tryGetNextItem(ref items, out span) && uint.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var explicitlyReportedValue) &&
                 tryGetNextItem(ref items, out span) && uint.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out error) &&
+                tryGetNextItem(ref items, out span) && uint.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out rawError) &&
                 tryGetNextItem(ref items, out span) && ulong.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var usnValue) &&
                 tryGetNextItem(ref items, out span) && uint.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var desiredAccessValue) &&
                 tryGetNextItem(ref items, out span) && uint.TryParse(span, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out var shareModeValue) &&
@@ -298,7 +300,7 @@ namespace BuildXL.Processes
 #endif
             }
 
-            static void tryGetErrorMessage(string line, ReportedFileOperation operation, int itemsLength, out string? errorMessage)
+            void tryGetErrorMessage(string line, ReportedFileOperation operation, int itemsLength, out string? errorMessage)
             {
                 // Make sure the formatting happens only if the condition is false.
                 if (itemsLength < MinItemsCount)
@@ -323,67 +325,6 @@ namespace BuildXL.Processes
                     errorMessage = null;
                 }
             }
-        }
-
-        /// <summary>
-        /// Returns a detours report line representing an augmented file access. 
-        /// </summary>
-        /// <remarks>
-        /// The line format is compatible with a regular file access report line. This is not a hard requirement (since <see cref="ReportType.AugmentedFileAccess"/> 
-        /// is used to distinguish this line from regular lines), but is convenient to use the same report line parser for all cases. So future changes 
-        /// can happen here as long as they are kept in sync with <see cref="SandboxedProcessReports.TryParseAugmentedFileAccess"/>
-        /// </remarks>
-        public static string GetReportLineForAugmentedFileAccess(
-            ReportedFileOperation reportedFileOperation,
-            uint processId,
-            RequestedAccess requestedAccess,
-            FileAccessStatus fileAccessStatus,
-            uint errorCode,
-            Usn usn,
-            DesiredAccess desiredAccess,
-            ShareMode shareMode,
-            CreationDisposition creationDisposition,
-            FlagsAndAttributes flagsAndAttributes,
-            FlagsAndAttributes openedFileOrDirectoryAttributes,
-            string absolutePath,
-            string? enumeratePattern,
-            string? processArgs)
-        {
-            var result = new System.Text.StringBuilder();
-
-            result.Append($"{(int)ReportType.AugmentedFileAccess},{reportedFileOperation}:");
-            result.Append($"{processId:x}|");
-            result.Append($"{SandboxedProcessReports.FileAccessNoId:x}|"); // no id.
-            result.Append($"{SandboxedProcessReports.FileAccessNoId:x}|"); // no correlation id.
-            result.Append($"{(byte)requestedAccess:x}|");
-            result.Append($"{(byte)fileAccessStatus:x}|");
-            // '1' makes the access look as explicitly reported, but this actually doesn't matter since it will get
-            // set based on the manifest policy upon reception
-            result.Append("1|");
-            result.Append($"{errorCode:x}|");
-            result.Append($"{usn.Value:x}|");
-            result.Append($"{(uint)desiredAccess:x}|");
-            result.Append($"{(uint)shareMode:x}|");
-            result.Append($"{(uint)creationDisposition:x}|");
-            result.Append($"{(uint)flagsAndAttributes:x}|");
-            result.Append($"{(uint)openedFileOrDirectoryAttributes:x}|");
-            // The manifest path is always written as invalid
-            result.Append($"{AbsolutePath.Invalid.Value.Value:x}|");
-            result.Append(absolutePath);
-
-            if (!string.IsNullOrEmpty(enumeratePattern))
-            {
-                Contract.Assert(requestedAccess == RequestedAccess.Enumerate);
-                result.Append($"|{enumeratePattern}");
-            }
-
-            if (!string.IsNullOrEmpty(processArgs))
-            {
-                Contract.Assert(reportedFileOperation == ReportedFileOperation.Process);
-                result.Append($"|{processArgs}");
-            }
-
-            return result.Append("\r\n").ToString();
         }
     }
 }

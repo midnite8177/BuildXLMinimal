@@ -82,7 +82,10 @@ namespace BuildXL.Processes
             writer.WriteCompact((uint)m_file);
             writer.Write(m_exception, (w, v) =>
             {
-                w.WriteNullableString(v.Message);
+                // There is no easy way to serialize an exception. So, in addition to serializing the message of the exception,
+                // we also serialize the messages of its inner exceptions.
+                // TODO: Consider serializing the exception as a JSON object; currently it only works with Newtonsoft.Json.
+                w.WriteNullableString(v.LogEventMessage);
                 w.WriteCompact((uint)v.RootCause);
             });
         }
@@ -189,10 +192,15 @@ namespace BuildXL.Processes
         }
 
         /// <summary>
-        /// Reads the entire value; don't call this if the length is excessive, as it might OOM.
+        /// Reads the entire value; String will be truncated around 100k characters.
         /// </summary>
         /// <exception cref="BuildXLException">Thrown if a recoverable error occurs while opening the stream.</exception>
-        public async Task<string> ReadValueAsync()
+        public Task<string> ReadValueAsync() => ReadValueAsync(100_000_000);
+
+        /// <summary>
+        /// For testing
+        /// </summary>
+        internal async Task<string> ReadValueAsync(int maxLength)
         {
             if (m_exception != null)
             {
@@ -209,8 +217,16 @@ namespace BuildXL.Processes
                 {
                     using (TextReader reader = CreateFileReader())
                     {
-                        string value = await reader.ReadToEndAsync();
-                        return value;
+                        if (m_length < maxLength)
+                        {
+                            return await reader.ReadToEndAsync();
+                        }
+                        else
+                        {
+                            char[] buffer = new char[maxLength];
+                            await reader.ReadBlockAsync(buffer, 0, maxLength);
+                            return new string(buffer);
+                        }
                     }
                 },
                 e => throw new BuildXLException("Failed to read a value from a stream", e));

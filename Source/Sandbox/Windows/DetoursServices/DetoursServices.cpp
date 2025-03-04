@@ -1255,8 +1255,6 @@ static bool DllProcessAttach()
             ATTACH(OpenEncryptedFileRawW);
             ATTACH(OpenEncryptedFileRawA);
             ATTACH(OpenFileById);
-            ATTACH(GetFinalPathNameByHandleW);
-            ATTACH(GetFinalPathNameByHandleA);
 
             ATTACH(NtCreateFile);
             ATTACH(NtOpenFile);
@@ -1271,7 +1269,17 @@ static bool DllProcessAttach()
             ATTACH(ZwSetInformationFile);
 
             ATTACH(CreatePipe);
-            ATTACH(DeviceIoControl);
+
+            if (!IgnoreGetFinalPathNameByHandle())
+            {
+                ATTACH(GetFinalPathNameByHandleW);
+                ATTACH(GetFinalPathNameByHandleA);
+            }
+
+            if (!IgnoreDeviceIoControlGetReparsePoint())
+            {
+                ATTACH(DeviceIoControl);
+            }
 #pragma warning( pop )
         }
         else {
@@ -1340,22 +1348,16 @@ static bool DllProcessAttach()
 
                     if (!failedInitPolicy)
                     {
-                        // Now we can make decisions based on the file's existence and type.
                         DWORD attributes = GetFileAttributesW(szModName);
-                        DWORD errorProbe = ERROR_SUCCESS;
-                        if (attributes == INVALID_FILE_ATTRIBUTES) {
-                            errorProbe = GetLastError();
-                        }
 
-                        if (errorProbe == ERROR_SUCCESS)
+                        if (attributes != INVALID_FILE_ATTRIBUTES)
                         {
-                            assert(attributes != INVALID_FILE_ATTRIBUTES);
                             FileReadContext fileReadContext;
-                            fileReadContext.InferExistenceFromError(errorProbe);
+                            fileReadContext.InferExistenceFromError(ERROR_SUCCESS);
                             fileReadContext.OpenedDirectory = ((attributes & FILE_ATTRIBUTE_DIRECTORY) != 0);
                             if (!fileReadContext.OpenedDirectory) {
                                 AccessCheckResult accessCheck = policyResult.CheckReadAccess(RequestedReadAccess::Read, fileReadContext);
-                                ReportIfNeeded(accessCheck, fileOperationContext, policyResult, 0);
+                                ReportIfNeeded(accessCheck, fileOperationContext, policyResult, ERROR_SUCCESS);
                             }
                         }
                     }

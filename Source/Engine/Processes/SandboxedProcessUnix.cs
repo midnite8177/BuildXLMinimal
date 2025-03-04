@@ -675,18 +675,7 @@ namespace BuildXL.Processes
             }
         }
 
-        private void ReportProcessCreated()
-        {
-            var report = new SandboxReportLinux
-            {
-                FileOperation = ReportedFileOperation.Process,
-                ProcessId = (uint)Process.Id,
-                Data = Process.StartInfo.FileName,
-                FileAccessStatus = (uint)FileAccessStatus.Allowed
-            };
-
-            ReportFileAccess(ref report);
-        }
+        
 
         /// <summary>
         /// This function checks for timeout conditions and once met, times out a process tree.
@@ -796,7 +785,7 @@ namespace BuildXL.Processes
                         }
 
                         // Set the process exit time once we receive it from the native side
-                        if (report.FileOperation == ReportedFileOperation.ProcessExit && report.ProcessId == Process.Id)
+                        if (report.FileOperation == ReportedFileOperation.ProcessExit && report.ProcessId == ProcessId)
                         {
                             m_processExitReceived = true;
                         }
@@ -893,6 +882,7 @@ namespace BuildXL.Processes
             out FileAccessStatus status,
             out bool explicitlyReported, 
             out uint error, 
+            out uint rawError,
             out Usn usn, 
             out DesiredAccess desiredAccess, 
             out ShareMode shareMode, 
@@ -930,6 +920,7 @@ namespace BuildXL.Processes
 
                 explicitlyReported = report.ExplicitlyReport > 0;
                 error = report.Error;
+                rawError = error;
                 usn = ReportedFileAccess.NoUsn;
                 desiredAccess = isWrite ? DesiredAccess.GENERIC_WRITE : DesiredAccess.GENERIC_READ;
                 shareMode = ShareMode.FILE_SHARE_READ;

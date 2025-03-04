@@ -286,6 +286,7 @@ namespace BuildXL.Processes
             out FileAccessStatus status,
             out bool explicitlyReported,
             out uint error,
+            out uint rawError,
             out Usn usn,
             out DesiredAccess desiredAccess,
             out ShareMode shareMode,
@@ -705,6 +706,7 @@ namespace BuildXL.Processes
             out FileAccessStatus status,
             out bool explicitlyReported,
             out uint error,
+            out uint rawError,
             out Usn usn,
             out DesiredAccess desiredAccess,
             out ShareMode shareMode,
@@ -717,8 +719,7 @@ namespace BuildXL.Processes
             out string processArgs,
             out string errorMessage)
         {
-            // An augmented file access has the same structure as a regular one, so let's call
-            // the usual parser
+            // An augmented file access has the same structure as a regular one, so let's call the usual parser.
             var result = FileAccessReportLine.TryParse(
                 ref data,
                 out processId,
@@ -730,6 +731,7 @@ namespace BuildXL.Processes
                 out status,
                 out explicitlyReported,
                 out error,
+                out rawError,
                 out usn,
                 out desiredAccess,
                 out shareMode,
@@ -791,6 +793,7 @@ namespace BuildXL.Processes
                 out var status,
                 out var explicitlyReported,
                 out var error,
+                out var rawError,
                 out var usn,
                 out var desiredAccess,
                 out var shareMode,
@@ -834,6 +837,7 @@ namespace BuildXL.Processes
                     Id = id,
                     CorrelationId = correlationId,
                     Error = error,
+                    RawError = rawError,
                     DesiredAccess = desiredAccess,
                     ShareMode = shareMode,
                     CreationDisposition = creationDisposition,
@@ -998,7 +1002,7 @@ namespace BuildXL.Processes
                 }
             }
 
-            m_traceBuilder?.ReportFileAccess(processId, operation, requestedAccess, manifestPath, path, error, isAnAugmentedFileAccess, enumeratePattern);
+            m_traceBuilder?.ReportFileAccess(processId, operation, requestedAccess, finalPath, error, isAnAugmentedFileAccess, enumeratePattern);
 
             if (operation == ReportedFileOperation.FirstAllowWriteCheckInProcess)
             {
@@ -1079,15 +1083,16 @@ namespace BuildXL.Processes
                     status,
                     explicitlyReported,
                     error,
+                    rawError,
                     usn,
                     desiredAccess,
                     shareMode,
                     creationDisposition,
                     flagsAndAttributes,
-                    openedFileOrDirectoryAttributes,
                     manifestPath,
                     path,
                     enumeratePattern,
+                    openedFileOrDirectoryAttributes,
                     method);
 
             // We need to track directories effectively created by pips. In order to do that, we need to interpret access reports in order,
