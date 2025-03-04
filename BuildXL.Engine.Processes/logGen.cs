@@ -9,7 +9,7 @@ namespace BuildXL.Processes.Tracing
     /// <summary>
     /// Logger interface
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("csc.exe", "4.1100.24.46003")]
+    [System.CodeDom.Compiler.GeneratedCode("ServiceHub.RoslynCodeAnalysisService.dll", "17.12.40433.1380")]
     public interface IProcessesLogger : global::BuildXL.Utilities.Instrumentation.Common.ILogger
     {
         /// <summary>
@@ -69,13 +69,13 @@ namespace BuildXL.Processes.Tracing
         /// </summary>
         void PipProcessDisallowedNtCreateFileAccessWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string pipSpecPath, string pipWorkingDirectory, string fileAccessDescription, string path);
         /// <summary>
-        /// (Warning) - [{1}] Process ran for {2}ms, which is longer than the warning timeout of {3}ms; the process will be terminated if it ever runs longer than {4}ms
+        /// (Warning) - [{1}] Process ran for {2}, which is longer than the warning timeout of {3}; the process will be terminated if it ever runs longer than {4}
         /// </summary>
-        void PipProcessTookTooLongWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long softMax, long hardMax);
+        void PipProcessTookTooLongWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string softMax, string hardMax);
         /// <summary>
-        /// (Error) - [{1}] Process terminated because it took too long: {2}ms; the timeout is set to {3}ms. {4} \r\n Process Output: \r\n {5}
+        /// (Error) - [{1}] Process terminated because it took too long: {2}; the timeout is set to {3}. {4}\r\nProcess Output:\r\n{5}
         /// </summary>
-        void PipProcessTookTooLongError(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long time, string dumpDetails, string outputToLog);
+        void PipProcessTookTooLongError(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string time, string dumpDetails, string outputToLog);
         /// <summary>
         /// (Verbose) - [{1}] Process standard output at '{2}'
         /// </summary>
@@ -247,7 +247,7 @@ namespace BuildXL.Processes.Tracing
         /// <summary>
         /// (Error) - [{1}, {2}, {3}]Process output directories could not be prepared, path '{2}', error code {3:X8}: {4}
         /// </summary>
-        void PipProcessOutputPreparationFailed(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message, string exception);
+        void PipProcessOutputPreparationFailed(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message);
         /// <summary>
         /// (Verbose) - [{1}] Process output '{2}' could not be prepared. Attempting to delete it from within the VM on the next retry.
         /// </summary>
@@ -417,7 +417,7 @@ namespace BuildXL.Processes.Tracing
         /// </summary>
         void CannotProbeOutputUnderSharedOpaque(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, string pipDescription, string path, string details);
         /// <summary>
-        /// (Verbose) - [{1}] Failure during dumping unexpected surviving child processes for Process: '{processName}'. Status: {status}
+        /// (Verbose) - [{1}] Dumping unexpected surviving child processes for Process: '{processName}'. Status: {status}
         /// </summary>
         void DumpSurvivingPipProcessChildrenStatus(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, string processName, string status);
         /// <summary>
@@ -465,7 +465,7 @@ namespace BuildXL.Processes.Tracing
     /// <summary>
     /// Instance based logger
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("csc.exe", "4.1100.24.46003")]
+    [System.CodeDom.Compiler.GeneratedCode("ServiceHub.RoslynCodeAnalysisService.dll", "17.12.40433.1380")]
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public class Log
     {
@@ -600,17 +600,17 @@ namespace BuildXL.Processes.Tracing
         }
 
         /// <summary>
-        /// Warning DX0015: [{1}] Process ran for {2}ms, which is longer than the warning timeout of {3}ms; the process will be terminated if it ever runs longer than {4}ms
+        /// Warning DX0015: [{1}] Process ran for {2}, which is longer than the warning timeout of {3}; the process will be terminated if it ever runs longer than {4}
         /// </summary>
-        public void PipProcessTookTooLongWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long softMax, long hardMax)
+        public void PipProcessTookTooLongWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string softMax, string hardMax)
         {
             m_logger.PipProcessTookTooLongWarning(context, pipSemiStableHash, pipDescription, actual, softMax, hardMax);
         }
 
         /// <summary>
-        /// Error DX0016: [{1}] Process terminated because it took too long: {2}ms; the timeout is set to {3}ms. {4} \r\n Process Output: \r\n {5}
+        /// Error DX0016: [{1}] Process terminated because it took too long: {2}; the timeout is set to {3}. {4}\r\nProcess Output:\r\n{5}
         /// </summary>
-        public void PipProcessTookTooLongError(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long time, string dumpDetails, string outputToLog)
+        public void PipProcessTookTooLongError(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string time, string dumpDetails, string outputToLog)
         {
             m_logger.PipProcessTookTooLongError(context, pipSemiStableHash, pipDescription, actual, time, dumpDetails, outputToLog);
         }
@@ -954,9 +954,9 @@ namespace BuildXL.Processes.Tracing
         /// <summary>
         /// Error DX0046: [{1}, {2}, {3}]Process output directories could not be prepared, path '{2}', error code {3:X8}: {4}
         /// </summary>
-        public void PipProcessOutputPreparationFailed(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message, string exception)
+        public void PipProcessOutputPreparationFailed(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message)
         {
-            m_logger.PipProcessOutputPreparationFailed(context, pipSemiStableHash, pipDescription, path, errorCode, message, exception);
+            m_logger.PipProcessOutputPreparationFailed(context, pipSemiStableHash, pipDescription, path, errorCode, message);
         }
 
         /// <summary>
@@ -1296,7 +1296,7 @@ namespace BuildXL.Processes.Tracing
         }
 
         /// <summary>
-        /// Verbose DX12213: [{1}] Failure during dumping unexpected surviving child processes for Process: '{processName}'. Status: {status}
+        /// Verbose DX12213: [{1}] Dumping unexpected surviving child processes for Process: '{processName}'. Status: {status}
         /// </summary>
         public void DumpSurvivingPipProcessChildrenStatus(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, string processName, string status)
         {
@@ -1387,7 +1387,7 @@ namespace BuildXL.Processes.Tracing
     /// <summary>
     /// Logging Instantiation
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("csc.exe", "4.1100.24.46003")]
+    [System.CodeDom.Compiler.GeneratedCode("ServiceHub.RoslynCodeAnalysisService.dll", "17.12.40433.1380")]
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     public partial class Logger : global::BuildXL.Utilities.Instrumentation.Common.LoggerBase
     {
@@ -1419,7 +1419,7 @@ namespace BuildXL.Processes.Tracing
         /// <summary>
         /// Logging implementation
         /// </summary>
-        [System.CodeDom.Compiler.GeneratedCode("csc.exe", "4.1100.24.46003")]
+        [System.CodeDom.Compiler.GeneratedCode("ServiceHub.RoslynCodeAnalysisService.dll", "17.12.40433.1380")]
         [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
         private class LoggerImpl : Logger
         {
@@ -1858,7 +1858,7 @@ namespace BuildXL.Processes.Tracing
             /// <summary>
             /// Logging implementation
             /// </summary>
-            public override void PipProcessTookTooLongWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long softMax, long hardMax)
+            public override void PipProcessTookTooLongWarning(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string softMax, string hardMax)
             {
                 if (context.IsAsyncLoggingEnabled)
                 {
@@ -1875,7 +1875,7 @@ namespace BuildXL.Processes.Tracing
                 }
             }
 
-            private void PipProcessTookTooLongWarning_Core(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long softMax, long hardMax)
+            private void PipProcessTookTooLongWarning_Core(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string softMax, string hardMax)
             {
                 if (BuildXL.Processes.Tracing.ETWLogger.Log.IsEnabled(EventLevel.Warning, (EventKeywords)1))
                 {
@@ -1884,14 +1884,14 @@ namespace BuildXL.Processes.Tracing
 
                 if (InspectMessageEnabled)
                 {
-                    InspectMessage(15, EventLevel.Warning, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}] Process ran for {2}ms, which is longer than the warning timeout of {3}ms; the process will be terminated if it ever runs longer than {4}ms", pipSemiStableHash, pipDescription, actual, softMax, hardMax, pipSemiStableHash, pipDescription, actual, softMax, hardMax), null);
+                    InspectMessage(15, EventLevel.Warning, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}] Process ran for {2}, which is longer than the warning timeout of {3}; the process will be terminated if it ever runs longer than {4}", pipSemiStableHash, pipDescription, actual, softMax, hardMax, pipSemiStableHash, pipDescription, actual, softMax, hardMax), null);
                 }
             }
 
             /// <summary>
             /// Logging implementation
             /// </summary>
-            public override void PipProcessTookTooLongError(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long time, string dumpDetails, string outputToLog)
+            public override void PipProcessTookTooLongError(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string time, string dumpDetails, string outputToLog)
             {
                 if (context.IsAsyncLoggingEnabled)
                 {
@@ -1908,7 +1908,7 @@ namespace BuildXL.Processes.Tracing
                 }
             }
 
-            private void PipProcessTookTooLongError_Core(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, long actual, long time, string dumpDetails, string outputToLog)
+            private void PipProcessTookTooLongError_Core(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string actual, string time, string dumpDetails, string outputToLog)
             {
                 if (BuildXL.Processes.Tracing.ETWLogger.Log.IsEnabled(EventLevel.Error, (EventKeywords)129))
                 {
@@ -1917,7 +1917,7 @@ namespace BuildXL.Processes.Tracing
 
                 if (InspectMessageEnabled)
                 {
-                    InspectMessage(16, EventLevel.Error, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}] Process terminated because it took too long: {2}ms; the timeout is set to {3}ms. {4} \r\n Process Output: \r\n {5}", pipSemiStableHash, pipDescription, actual, time, dumpDetails, outputToLog, pipSemiStableHash, pipDescription, actual, time, dumpDetails, outputToLog), null);
+                    InspectMessage(16, EventLevel.Error, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}] Process terminated because it took too long: {2}; the timeout is set to {3}. {4}\r\nProcess Output:\r\n{5}", pipSemiStableHash, pipDescription, actual, time, dumpDetails, outputToLog, pipSemiStableHash, pipDescription, actual, time, dumpDetails, outputToLog), null);
                 }
             }
 
@@ -3195,15 +3195,15 @@ namespace BuildXL.Processes.Tracing
             /// <summary>
             /// Logging implementation
             /// </summary>
-            public override void PipProcessOutputPreparationFailed(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message, string exception)
+            public override void PipProcessOutputPreparationFailed(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message)
             {
                 if (context.IsAsyncLoggingEnabled)
                 {
-                    EnqueueLogAction(context, 46, () => PipProcessOutputPreparationFailed_Core(context, pipSemiStableHash, pipDescription, path, errorCode, message, exception));
+                    EnqueueLogAction(context, 46, () => PipProcessOutputPreparationFailed_Core(context, pipSemiStableHash, pipDescription, path, errorCode, message));
                 }
                 else
                 {
-                    PipProcessOutputPreparationFailed_Core(context, pipSemiStableHash, pipDescription, path, errorCode, message, exception);
+                    PipProcessOutputPreparationFailed_Core(context, pipSemiStableHash, pipDescription, path, errorCode, message);
                 }
 
                 if (m_notifyContextWhenErrorsAreLogged)
@@ -3212,16 +3212,16 @@ namespace BuildXL.Processes.Tracing
                 }
             }
 
-            private void PipProcessOutputPreparationFailed_Core(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message, string exception)
+            private void PipProcessOutputPreparationFailed_Core(global::BuildXL.Utilities.Instrumentation.Common.LoggingContext context, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message)
             {
                 if (BuildXL.Processes.Tracing.ETWLogger.Log.IsEnabled(EventLevel.Error, (EventKeywords)65))
                 {
-                    BuildXL.Processes.Tracing.ETWLogger.Log.PipProcessOutputPreparationFailed(context.Session.RelatedActivityId, pipSemiStableHash, pipDescription, path, errorCode, message, exception);
+                    BuildXL.Processes.Tracing.ETWLogger.Log.PipProcessOutputPreparationFailed(context.Session.RelatedActivityId, pipSemiStableHash, pipDescription, path, errorCode, message);
                 }
 
                 if (InspectMessageEnabled)
                 {
-                    InspectMessage(46, EventLevel.Error, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}, {2}, {3}]Process output directories could not be prepared, path '{2}', error code {3:X8}: {4}", pipSemiStableHash, pipDescription, path, errorCode, message, exception, pipSemiStableHash, pipDescription, path, errorCode, message, exception), null);
+                    InspectMessage(46, EventLevel.Error, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}, {2}, {3}]Process output directories could not be prepared, path '{2}', error code {3:X8}: {4}", pipSemiStableHash, pipDescription, path, errorCode, message, pipSemiStableHash, pipDescription, path, errorCode, message), null);
                 }
             }
 
@@ -4525,7 +4525,7 @@ namespace BuildXL.Processes.Tracing
 
                 if (InspectMessageEnabled)
                 {
-                    InspectMessage(12213, EventLevel.Verbose, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}] Failure during dumping unexpected surviving child processes for Process: '{0}'. Status: {1}", processName, status, processName, status), null);
+                    InspectMessage(12213, EventLevel.Verbose, string.Format(System.Globalization.CultureInfo.InvariantCulture, "[{1}] Dumping unexpected surviving child processes for Process: '{0}'. Status: {1}", processName, status, processName, status), null);
                 }
             }
 
@@ -4851,7 +4851,7 @@ namespace BuildXL.Processes.Tracing
     /// <summary>
     /// Output logger that logs event into ETW
     /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("csc.exe", "4.1100.24.46003")]
+    [System.CodeDom.Compiler.GeneratedCode("ServiceHub.RoslynCodeAnalysisService.dll", "17.12.40433.1380")]
     [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
     [EventSource(Name = "BuildXL.Processes.Tracing.ETWLogger")]
     public class ETWLogger : EventSource
@@ -4868,7 +4868,7 @@ namespace BuildXL.Processes.Tracing
             }
         }
 
-        private ETWLogger() 
+        private ETWLogger()
 #if NET_FRAMEWORK_451
           : base()
 #else
@@ -5232,8 +5232,8 @@ namespace BuildXL.Processes.Tracing
         /// <summary>
         /// PipProcessTookTooLongWarning
         /// </summary>
-        [Event(15, Level = EventLevel.Warning, Keywords = (EventKeywords)1, Task = (EventTask)9, Message = "[{1}] Process ran for {2}ms, which is longer than the warning timeout of {3}ms; the process will be terminated if it ever runs longer than {4}ms")]
-        public unsafe void PipProcessTookTooLongWarning(Guid relatedActivityId, long pipSemiStableHash, string pipDescription, long actual, long softMax, long hardMax)
+        [Event(15, Level = EventLevel.Warning, Keywords = (EventKeywords)1, Task = (EventTask)9, Message = "[{1}] Process ran for {2}, which is longer than the warning timeout of {3}; the process will be terminated if it ever runs longer than {4}")]
+        public unsafe void PipProcessTookTooLongWarning(Guid relatedActivityId, long pipSemiStableHash, string pipDescription, string actual, string softMax, string hardMax)
         {
             EventSource.EventData* data = stackalloc EventSource.EventData[5];
             data[0].DataPointer = (IntPtr)(&pipSemiStableHash);
@@ -5243,21 +5243,33 @@ namespace BuildXL.Processes.Tracing
             {
                 data[1].DataPointer = (IntPtr)pipDescriptionBytes;
                 data[1].Size = ((pipDescription.Length + 1) * 2);
-                data[2].DataPointer = (IntPtr)(&actual);
-                data[2].Size = sizeof(long);
-                data[3].DataPointer = (IntPtr)(&softMax);
-                data[3].Size = sizeof(long);
-                data[4].DataPointer = (IntPtr)(&hardMax);
-                data[4].Size = sizeof(long);
-                WriteEventWithRelatedActivityIdCore(15, &relatedActivityId, 5, data);
+                actual = actual ?? String.Empty;
+                fixed (char* actualBytes = actual)
+                {
+                    data[2].DataPointer = (IntPtr)actualBytes;
+                    data[2].Size = ((actual.Length + 1) * 2);
+                    softMax = softMax ?? String.Empty;
+                    fixed (char* softMaxBytes = softMax)
+                    {
+                        data[3].DataPointer = (IntPtr)softMaxBytes;
+                        data[3].Size = ((softMax.Length + 1) * 2);
+                        hardMax = hardMax ?? String.Empty;
+                        fixed (char* hardMaxBytes = hardMax)
+                        {
+                            data[4].DataPointer = (IntPtr)hardMaxBytes;
+                            data[4].Size = ((hardMax.Length + 1) * 2);
+                            WriteEventWithRelatedActivityIdCore(15, &relatedActivityId, 5, data);
+                        }
+                    }
+                }
             }
         }
 
         /// <summary>
         /// PipProcessTookTooLongError
         /// </summary>
-        [Event(16, Level = EventLevel.Error, Keywords = (EventKeywords)129, Task = (EventTask)9, Message = "[{1}] Process terminated because it took too long: {2}ms; the timeout is set to {3}ms. {4} \r\n Process Output: \r\n {5}")]
-        public unsafe void PipProcessTookTooLongError(Guid relatedActivityId, long pipSemiStableHash, string pipDescription, long actual, long time, string dumpDetails, string outputToLog)
+        [Event(16, Level = EventLevel.Error, Keywords = (EventKeywords)129, Task = (EventTask)9, Message = "[{1}] Process terminated because it took too long: {2}; the timeout is set to {3}. {4}\r\nProcess Output:\r\n{5}")]
+        public unsafe void PipProcessTookTooLongError(Guid relatedActivityId, long pipSemiStableHash, string pipDescription, string actual, string time, string dumpDetails, string outputToLog)
         {
             EventSource.EventData* data = stackalloc EventSource.EventData[6];
             data[0].DataPointer = (IntPtr)(&pipSemiStableHash);
@@ -5267,21 +5279,29 @@ namespace BuildXL.Processes.Tracing
             {
                 data[1].DataPointer = (IntPtr)pipDescriptionBytes;
                 data[1].Size = ((pipDescription.Length + 1) * 2);
-                data[2].DataPointer = (IntPtr)(&actual);
-                data[2].Size = sizeof(long);
-                data[3].DataPointer = (IntPtr)(&time);
-                data[3].Size = sizeof(long);
-                dumpDetails = dumpDetails ?? String.Empty;
-                fixed (char* dumpDetailsBytes = dumpDetails)
+                actual = actual ?? String.Empty;
+                fixed (char* actualBytes = actual)
                 {
-                    data[4].DataPointer = (IntPtr)dumpDetailsBytes;
-                    data[4].Size = ((dumpDetails.Length + 1) * 2);
-                    outputToLog = outputToLog ?? String.Empty;
-                    fixed (char* outputToLogBytes = outputToLog)
+                    data[2].DataPointer = (IntPtr)actualBytes;
+                    data[2].Size = ((actual.Length + 1) * 2);
+                    time = time ?? String.Empty;
+                    fixed (char* timeBytes = time)
                     {
-                        data[5].DataPointer = (IntPtr)outputToLogBytes;
-                        data[5].Size = ((outputToLog.Length + 1) * 2);
-                        WriteEventWithRelatedActivityIdCore(16, &relatedActivityId, 6, data);
+                        data[3].DataPointer = (IntPtr)timeBytes;
+                        data[3].Size = ((time.Length + 1) * 2);
+                        dumpDetails = dumpDetails ?? String.Empty;
+                        fixed (char* dumpDetailsBytes = dumpDetails)
+                        {
+                            data[4].DataPointer = (IntPtr)dumpDetailsBytes;
+                            data[4].Size = ((dumpDetails.Length + 1) * 2);
+                            outputToLog = outputToLog ?? String.Empty;
+                            fixed (char* outputToLogBytes = outputToLog)
+                            {
+                                data[5].DataPointer = (IntPtr)outputToLogBytes;
+                                data[5].Size = ((outputToLog.Length + 1) * 2);
+                                WriteEventWithRelatedActivityIdCore(16, &relatedActivityId, 6, data);
+                            }
+                        }
                     }
                 }
             }
@@ -6307,9 +6327,9 @@ namespace BuildXL.Processes.Tracing
         /// PipProcessOutputPreparationFailed
         /// </summary>
         [Event(46, Level = EventLevel.Error, Keywords = (EventKeywords)65, Task = (EventTask)9, Message = "[{1}, {2}, {3}]Process output directories could not be prepared, path '{2}', error code {3:X8}: {4}")]
-        public unsafe void PipProcessOutputPreparationFailed(Guid relatedActivityId, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message, string exception)
+        public unsafe void PipProcessOutputPreparationFailed(Guid relatedActivityId, long pipSemiStableHash, string pipDescription, string path, int errorCode, string message)
         {
-            EventSource.EventData* data = stackalloc EventSource.EventData[6];
+            EventSource.EventData* data = stackalloc EventSource.EventData[5];
             data[0].DataPointer = (IntPtr)(&pipSemiStableHash);
             data[0].Size = sizeof(long);
             pipDescription = pipDescription ?? String.Empty;
@@ -6329,13 +6349,7 @@ namespace BuildXL.Processes.Tracing
                     {
                         data[4].DataPointer = (IntPtr)messageBytes;
                         data[4].Size = ((message.Length + 1) * 2);
-                        exception = exception ?? String.Empty;
-                        fixed (char* exceptionBytes = exception)
-                        {
-                            data[5].DataPointer = (IntPtr)exceptionBytes;
-                            data[5].Size = ((exception.Length + 1) * 2);
-                            WriteEventWithRelatedActivityIdCore(46, &relatedActivityId, 6, data);
-                        }
+                        WriteEventWithRelatedActivityIdCore(46, &relatedActivityId, 5, data);
                     }
                 }
             }
@@ -7617,7 +7631,7 @@ namespace BuildXL.Processes.Tracing
         /// <summary>
         /// DumpSurvivingPipProcessChildrenStatus
         /// </summary>
-        [Event(12213, Level = EventLevel.Verbose, Keywords = (EventKeywords)1, Task = (EventTask)9, Message = "[{1}] Failure during dumping unexpected surviving child processes for Process: '{0}'. Status: {1}")]
+        [Event(12213, Level = EventLevel.Verbose, Keywords = (EventKeywords)1, Task = (EventTask)9, Message = "[{1}] Dumping unexpected surviving child processes for Process: '{0}'. Status: {1}")]
         public unsafe void DumpSurvivingPipProcessChildrenStatus(Guid relatedActivityId, string processName, string status)
         {
             EventSource.EventData* data = stackalloc EventSource.EventData[2];
